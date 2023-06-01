@@ -1,0 +1,33 @@
+@use 'sass:map';
+
+// Global theme colors
+@import '../../styles//global/theme.scss';
+
+.button {
+  position: relative;
+  background: map.get($theme-colors, 'button');
+  padding: 12px 28px;
+  border-radius: 5px;
+  color: map.get($theme-colors, 'text');
+  font-size: 14px;
+  z-index: 2;
+
+  &:before {
+    position: absolute;
+    content: 'Open on GitHub';
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: map.get($theme-colors, 'button-hover');
+    transition: opacity 0.3s ease-out;
+    opacity: 0;
+    z-index: 1;
+    border-radius: 5px;
+    padding: 12px 28px;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}

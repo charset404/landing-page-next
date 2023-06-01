@@ -1,0 +1,125 @@
+@use 'sass:map';
+
+// Global theme colors
+@import '../../styles/global//theme.scss';
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 165px 0;
+}
+
+.logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navbar ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 35px;
+}
+
+.navbar ul li {
+  font-size: 14px;
+}
+
+.navItem a {
+  display: flex;
+  justify-content: center;
+  color: map.get($theme-colors, 'description');
+  z-index: 2;
+  transition: color 0.3s ease-out;
+
+  &:hover {
+    color: map.get($theme-colors, 'text');
+  }
+}
+
+.btn_mobile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  padding: 5px;
+
+  &:hover {
+    background-color: map.get($theme-colors, 'secondary');
+  }
+
+  &:focus {
+    background-color: map.get($theme-colors, 'secondary');
+  }
+}
+
+// Menu mobile
+
+.navbar_mobile_visible {
+  display: flex !important;
+}
+
+.navbar_mobile_hide {
+  display: none !important;
+}
+
+.navbar_mobile {
+  position: absolute;
+  align-items: baseline !important;
+  padding: 1rem 0 1rem;
+  width: 15rem;
+  background-color: map.get($theme-colors, 'secondary');
+  top: 4rem;
+  right: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  a {
+    font-size: 2em;
+    background: none;
+  }
+
+  .navItem {
+    display: flex;
+    width: 10rem;
+    padding: 0.5rem 0 0.5rem 1rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    a {
+      &:hover {
+        &::before {
+          width: 10rem;
+        }
+      }
+
+      &::before {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        transition: width 0.3s ease-out;
+        content: '';
+        inset: 0;
+        top: 0.7rem;
+        z-index: -1;
+        height: 4rem;
+        width: 0rem;
+        background: map.get($theme-colors, 'button');
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+    }
+  }
+}

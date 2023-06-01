@@ -1,5 +1,5 @@
 // Styles
-import '../styles/global.scss';
+import '../styles/global/global.scss';
 
 // Fonts
 import { Poppins } from 'next/font/google';
